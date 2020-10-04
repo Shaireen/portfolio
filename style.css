@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+}
+
+.nav-wrapper {
+  /*max-width: 1200px;*/
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  left: 0;
+  z-index: 5;
+  margin: 0;
+  padding: 0 60px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.4em;
+}
+
+.nav-wrapper a {
+  text-transform: uppercase;
+  display: block;
+  float: right;
+  text-decoration: none;
+  color: white;
+  padding: 20px 25px 10px 25px;
+}
+
+.nav-wrapper a:hover {
+  background: url("svgs/wavylinetop-01.svg") no-repeat;
+  background-size: 100% 38px;
+  background-position: -100px 19px;
+  animation: move 1s ease-out forwards;
+  animation-play-state: paused;
+  text-decoration: none;
+  background-color: transparent;
+  animation-play-state: running;
+}
+
+.nav-wrapper a.active {
+  background: url("svgs/wavylinetop-01.svg") no-repeat;
+  background-size: 100% 38px;
+  background-position: 2px 19px;
+}
+
+@keyframes move {
+  from {
+    background-position: -100px 19px;
+  }
+  to {
+    background-position: 2px 19px;
+  }
+}
+
+.section#section1 {
+  background: #0d0d0d;
+}
+.headerwrapper {
+  height: 100vh;
+  background: url("svgs/nyhavndark-01.svg");
+  background-size: cover;
+}
+
+.ocean {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wavestatic {
+  background: url("svgs/bigblackwaveimg3-01.svg") no-repeat;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  z-index: 1;
+  width: 2000px;
+  height: 800px;
+  animation: swell 4s ease infinite;
+}
+
+.wavebottom {
+  background: url("svgs/bottomwave.svg") no-repeat;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  z-index: 1;
+  width: 2000px;
+  height: 800px;
+  animation: swell 4s ease infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1600px);
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+.firstname,
+.surname {
+  position: relative;
+  font-family: "Barlow Condensed", sans-serif;
+  text-shadow: 1px 1px 11px black;
+  font-size: 7em;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  perspective: 500px;
+  z-index: 10;
+}
+
+.profession {
+  position: relative;
+  perspective: 500px;
+  z-index: 10;
+  color: white;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+}
+
+.firstname::before,
+.firstname::after {
+  content: "<marcelina";
+  position: absolute;
+  top: -30vh;
+  left: 70vw;
+  z-index: 12;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 11px black;
+}
+
+.surname::before,
+.surname::after {
+  content: "jankowska/>";
+  position: absolute;
+  top: -17vh;
+  left: 70vw;
+  z-index: 12;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 11px black;
+}
+
+.profession::before,
+.profession::after {
+  position: absolute;
+  font-size: 3.2em;
+  content: "Front-end development";
+  top: -8vh;
+  left: 78vw;
+  z-index: 13;
+  transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 11px black;
+}
+
+h1::before,
+.profession::before {
+  animation: floatAbove 4s ease-in-out infinite;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+
+h1::after,
+.profession::after {
+  opacity: 0.65;
+  filter: blur(0.02em);
+  transform: translate(-50%, -50%) rotateX(21deg);
+  animation: floatBelow 4s ease-in-out infinite;
+  -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+}
+
+@keyframes floatAbove {
+  50% {
+    transform: translate(-50%, -60%);
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+  }
+}
+
+@keyframes floatBelow {
+  50% {
+    transform: translate(-50%, -60%) rotateX(10deg);
+    -webkit-clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+  }
+}
+
+/* media queries */
+
+@media screen and (max-width: 1125px) {
+  h1 {
+    font-size: 5em;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  .firstname::before,
+  .firstname::after {
+    top: -40vh;
+    left: 60vw;
+  }
+
+  .surname::before,
+  .surname::after {
+    top: -32vh;
+    left: 60vw;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  h1 {
+    font-size: 3em;
+  }
+  .firstname::before,
+  .firstname::after {
+    top: -40vh;
+    left: 55vw;
+  }
+
+  .surname::before,
+  .surname::after {
+    top: -34vh;
+    left: 55vw;
+  }
+}
