@@ -5,8 +5,13 @@ body {
   height: 100%;
   margin: 0;
 }
+
 body {
   overflow: hidden;
+}
+
+#section1 {
+  z-index: 15;
 }
 
 .nav-wrapper {
@@ -71,188 +76,88 @@ body {
 }
 .headerwrapper {
   height: 100vh;
-  background: url("svgs/nyhavndark-01.svg");
+  background: url("svgs/backgroundmockups.png");
   background-size: cover;
 }
 
-.ocean {
-  height: 400px;
-  width: 100%;
+.firstname {
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.wavestatic {
-  background: url("svgs/bigblackwaveimg3-01.svg") no-repeat;
-  position: absolute;
-  top: -50px;
-  left: 0;
-  z-index: 1;
-  width: 2000px;
-  height: 800px;
-  animation: swell 4s ease infinite;
-}
-
-.wavebottom {
-  background: url("svgs/bottomwave.svg") no-repeat;
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-  z-index: 1;
-  width: 2000px;
-  height: 800px;
-  animation: swell 4s ease infinite;
-}
-
-@keyframes wave {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-1600px);
-  }
-}
-
-@keyframes swell {
-  0%,
-  100% {
-    transform: translate3d(0, -25px, 0);
-  }
-  50% {
-    transform: translate3d(0, 5px, 0);
-  }
-}
-
-.firstname,
-.surname {
-  position: relative;
-  font-family: "Barlow Condensed", sans-serif;
-  text-shadow: 1px 1px 11px black;
-  font-size: 7em;
-  font-weight: 400;
-  color: white;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  perspective: 500px;
   z-index: 10;
+  color: black;
+  left: 70vw;
+  top: 10vh;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 6em;
+  animation: 1.1s ease-out slide-in, 1.1s ease-in fade-in;
+}
+
+.surname {
+  position: absolute;
+  z-index: 10;
+  color: black;
+  left: 72vw;
+  top: 19vh;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 6em;
+  animation: 1.1s ease-out slide-right, 1.1s ease-in fade-in;
 }
 
 .profession {
-  position: relative;
-  perspective: 500px;
+  position: absolute;
   z-index: 10;
-  color: white;
+  color: black;
+  left: 80vw;
+  top: 34vh;
   font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
   font-weight: 300;
+  font-style: italic;
+  font-size: 2em;
+  animation: 1.1s ease-in slide-down, 1.1s ease-in fade-in;
 }
 
-.firstname::before,
-.firstname::after {
-  content: "<marcelina";
-  position: absolute;
-  top: -30vh;
-  left: 70vw;
-  z-index: 12;
-  transform: translate(-50%, -50%);
-  text-shadow: 1px 1px 11px black;
-}
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100vh);
+  }
 
-.surname::before,
-.surname::after {
-  content: "jankowska/>";
-  position: absolute;
-  top: -17vh;
-  left: 70vw;
-  z-index: 12;
-  transform: translate(-50%, -50%);
-  text-shadow: 1px 1px 11px black;
-}
-
-.profession::before,
-.profession::after {
-  position: absolute;
-  font-size: 3.2em;
-  content: "Front-end development";
-  top: -8vh;
-  left: 78vw;
-  z-index: 13;
-  transform: translate(-50%, -50%);
-  text-shadow: 1px 1px 11px black;
-}
-
-h1::before,
-.profession::before {
-  animation: floatAbove 4s ease-in-out infinite;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
-}
-
-h1::after,
-.profession::after {
-  opacity: 0.65;
-  filter: blur(0.02em);
-  transform: translate(-50%, -50%) rotateX(21deg);
-  animation: floatBelow 4s ease-in-out infinite;
-  -webkit-clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
-  clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
-}
-
-@keyframes floatAbove {
-  50% {
-    transform: translate(-50%, -60%);
-    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 60%);
+  100% {
+    transform: translateY(0);
   }
 }
 
-@keyframes floatBelow {
-  50% {
-    transform: translate(-50%, -60%) rotateX(10deg);
-    -webkit-clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
-    clip-path: polygon(0% 60%, 100% 60%, 100% 100%, 0% 100%);
+@keyframes slide-right {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(100vh);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
 /* media queries */
-
-@media screen and (max-width: 1125px) {
-  h1 {
-    font-size: 5em;
-  }
-}
-
-@media screen and (max-width: 775px) {
-  h1 {
-    font-size: 4em;
-  }
-
-  .firstname::before,
-  .firstname::after {
-    top: -40vh;
-    left: 60vw;
-  }
-
-  .surname::before,
-  .surname::after {
-    top: -32vh;
-    left: 60vw;
-  }
-}
-
-@media screen and (max-width: 490px) {
-  h1 {
-    font-size: 3em;
-  }
-  .firstname::before,
-  .firstname::after {
-    top: -40vh;
-    left: 55vw;
-  }
-
-  .surname::before,
-  .surname::after {
-    top: -34vh;
-    left: 55vw;
-  }
-}
