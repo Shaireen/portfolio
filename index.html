@@ -5,90 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="fullpage.css" />
+    <link rel="stylesheet" href="fullpage/fullpage.css" />
   </head>
   <body>
-    <div class="content">
-      <nav role="navigation">
-        <div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="headerwrapper" id="section0">
-      <div class="filler"></div>
-      <nav class="nav-wrapper">
-        <a href="../index.html" class="active">Home</a>
-        <a href="subpages/events.html">Projects</a>
-        <a href="subpages/galleries.html">Skills</a>
-        <a href="subpages/artists.html">About me</a>
-        <a href="subpages/about.html">Contact</a>
-        <!-- <a href="javascript:void(0);" class="icon" onclick="responsiveNav()">
+    <div id="fullpage">
+      <div class="content">
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Info</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="section active headerwrapper" id="section0">
+        <img class="bigphoto" src="svgs/newbackground.png" />
+        <div class="filler"></div>
+        <nav class="nav-wrapper">
+          <a href="../index.html" class="active">Home</a>
+          <a href="subpages/events.html">Projects</a>
+          <a href="subpages/galleries.html">Skills</a>
+          <a href="subpages/artists.html">About me</a>
+          <a href="subpages/about.html">Contact</a>
+          <!-- <a href="javascript:void(0);" class="icon" onclick="responsiveNav()">
             <i class="fa fa-bars"></i>
           </a> -->
-      </nav>
-      <div class="myname">
-        <h1 class="firstname">Marcelina</h1>
-        <h1 class="surname">Jankowska</h1>
-        <p class="profession">Front-end dev</p>
+        </nav>
+        <div class="myname">
+          <h1 class="firstname"><span class="coloredletter">M</span>arcelina</h1>
+          <h1 class="surname"><span class="coloredletter">J</span>ankowska</h1>
+          <p class="profession">Front-end dev</p>
+        </div>
+        <!--<div class="wavestatic"></div>-->
+        <!--<div class="wavebottom"></div>-->
       </div>
-      <!--<div class="wavestatic"></div>-->
-      <!--<div class="wavebottom"></div>-->
-    </div>
-    <div class="section" id="section1">
-      <h1 class="mainheading">Projects</h1>
-
-      <article class="oneproject">
-        <article class="gridwrapper">
-          <div class="gridtext">
-            <h2 class="projectname">Hogwarts student list</h2>
-            <section class="projectdescription">
-              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
-              years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-              Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
-              1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
-              ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.
-            </section>
-            <div class="buttonswrapper">
-              <button>Open the website</button>
-              <button>Github repository</button>
+      <div class="section" id="section1">
+        <h1 class="mainheading">Projects</h1>
+      </div>
+      <div class="section" id="section2">
+        <article class="oneproject project">
+          <article class="gridwrapper">
+            <div class="gridtext">
+              <div class="textwrapper">
+                <h2 class="projectname">Hogwarts student list</h2>
+                <section class="projectdescription">
+                  Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
+                  years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
+                  a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+                  sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on
+                  the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section
+                  1.10.
+                </section>
+                <div class="buttonswrapper">
+                  <button class="buttonanim">Open the website</button>
+                  <button>Github repository</button>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="projectphoto">
-            <img src="mockups/hogwartsmockup.png" />
-          </div>
-        </article>
-      </article>
-      <article class="oneproject2">
-        <article class="gridwrapper">
-          <div class="projectphoto">
-            <img src="mockups/hogwartsmockup.png" />
-          </div>
-          <div class="gridtext">
-            <h2 class="projectname">Hogwarts student list</h2>
-            <section class="projectdescription">
-              Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
-              years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-              Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
-              1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
-              ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.
-            </section>
-            <div class="buttonswrapper">
-              <button>Open the website</button>
-              <button>Github repository</button>
+            <div class="projectphoto">
+              <img src="mockups/kphmockup.png" />
             </div>
-          </div>
+          </article>
         </article>
-      </article>
+      </div>
+      <div class="section" id="section3">
+        <article class="oneproject2 project">
+          <article class="gridwrapper">
+            <div class="projectphoto">
+              <img src="mockups/5kopenhagen.png" />
+            </div>
+            <div class="gridtext">
+              <h2 class="projectname">Hogwarts student list</h2>
+              <section class="projectdescription">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
+                years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
+                Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory
+                of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.
+              </section>
+              <div class="buttonswrapper">
+                <button>Open the website</button>
+                <button>Github repository</button>
+              </div>
+            </div>
+          </article>
+        </article>
+      </div>
     </div>
     <!--
         <div class="slide"><h1>Simple Demo</h1></div>
@@ -96,5 +105,11 @@
         <div class="slide"><h1>And text</h1></div>
         <div class="slide"><h1>And more text</h1></div>-->
     <script src="script.js"></script>
+    <script type="text/javascript" src="fullpage/fullpage.js"></script>
+    <script type="text/javascript">
+      var myFullpage = new fullpage("#fullpage", {
+        licenseKey: "CEB18934-DFE14D99-8DB1BAA7-E2A70785",
+      });
+    </script>
   </body>
 </html>

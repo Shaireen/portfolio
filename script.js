@@ -1,15 +1,13 @@
 /*window.addEventListener("DOMContentLoaded", start);
 
 function start() {
-  window.addEventListener("scroll", checkPosition);
+  checkPosition();
 }
 
 function checkPosition() {
-  let headingPosition = document.querySelector(".mainheading").getBoundingClientRect();
-  const nav = document.querySelector(".nav-wrapper");
-  if (headingPosition.y < -1) {
-    nav.classList.add("bgwhite");
-  } else {
-    nav.classList.remove("bgwhite");
-  }
-} */
+  let activeSection = document.querySelector(".active");
+  console.log("eyy");
+  activeSection.querySelector(".gridtext").classList.add("slide-left");
+  activeSection.querySelector(".projectphoto").classList.add("slide-right");
+}
+*/
