@@ -4,10 +4,17 @@
 /* general styling */
 html,
 body,
-h1 {
+h1,
+li {
   margin: 0;
   padding: 0;
   font-family: "Barlow Condensed", sans-serif;
+}
+
+a {
+  color: black;
+  font-size: 1.6em;
+  text-decoration: none;
 }
 
 body {
@@ -22,7 +29,8 @@ body {
 button {
   outline: none;
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid #e56e39;
+  border-top: 3px solid #e56e39;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -31,42 +39,23 @@ button {
   padding: 10px 15px;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1.2em;
+  font-weight: 500;
   margin: 10px 30px;
 }
 
-/* button animation */
-button:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  background: #e56e39;
-  z-index: -1;
-  transform: translate3D(0, -100%, 0);
-  transition: all 0.5s;
-}
+/* button transition on hover */
 
-button:hover:after {
-  transform: translate3D(0, 0, 0);
-  transition: all 0.5s;
-}
-
-.buttonanim:after {
-  top: 0;
-  z-index: -1;
-  transform: translate3D(-101%, 0, 0);
-}
-
-.buttonanim:hover:after {
-  transform: translate3D(0, 0, 0);
-  transition: all 0.5s;
+button:hover {
+  background: rgba(229, 110, 57, 0.8);
+  border: 1px solid black;
+  border-top: 3px solid black;
 }
 
 .content {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -89,7 +78,7 @@ nav {
   user-select: none;
 }
 
-#menuToggle input {
+#menuToggle .spanwrapper {
   display: flex;
   width: 40px;
   height: 32px;
@@ -109,6 +98,7 @@ nav {
   border-radius: 3px;
   z-index: 1;
   transform-origin: 5px 0px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1), 0px 0px 6px rgba(0, 0, 0, 1);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
@@ -120,17 +110,17 @@ nav {
   transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked ~ span {
+#menuToggle.animatespan span {
   opacity: 1;
   transform: rotate(45deg) translate(-3px, -1px);
   background: #36383f;
 }
-#menuToggle input:checked ~ span:nth-last-child(3) {
+#menuToggle.animatespan span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2) {
+#menuToggle.animatespan span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
@@ -150,11 +140,24 @@ nav {
 }
 
 #menu li {
-  padding: 10px 0;
-  transition-delay: 2s;
+  border-left: 3px solid #e56e39;
+  margin-top: 20px;
+  padding: 10px;
+  list-style-type: none;
+  transition: 0.5s all;
 }
 
-#menuToggle input:checked ~ ul {
+#menu li:hover {
+  color: #e56e39;
+  transform: scale(1.1);
+}
+
+#menu li.active {
+  border-left: 3px solid black;
+  transform: scale(1.1);
+}
+
+#menuToggle.animatespan ul {
   transform: none;
 }
 
@@ -220,7 +223,6 @@ nav {
   height: 100vh;
   /* background: url("svgs/backgroundmockups.png");*/
   z-index: 10;
-  background-size: cover;
 }
 
 .bigphoto {
@@ -298,15 +300,27 @@ nav {
   left: 65vw;
   z-index: 15;
   border-left: 6px solid #e56e39;
+  transform: translateX(50vw);
 }
 
 .gridtext {
   padding: 10%;
+  opacity: 0.1;
+  transform: scale(0.8);
 }
+
+/*.gridtext.right {
+  transform: translateX(50vw);
+}
+
+.gridtext.left {
+  transform: translateX(-50vw);
+}*/
 
 .textwrapper {
   margin-top: 20%;
   background: white;
+  z-index: -2;
   box-shadow: 8px -8px 20px rgba(0, 0, 0, 0.4);
   padding: 4%;
 }
@@ -332,18 +346,50 @@ nav {
   margin: auto;
 }
 
+/*.oneproject2 .projectphoto {
+  transform: translateX(50vw);
+}
+
+.oneproject .projectphoto {
+  transform: translateX(-50vw);
+} */
+
 .projectphoto img {
   max-width: 100%;
+}
+
+.projectphoto {
+  opacity: 0.1;
 }
 
 /* slide in animations */
 
 .slide-right {
-  animation: 0.6s ease-in slide-right;
+  animation: 0.6s ease-in slide-right forwards;
+}
+
+.slide-right2 {
+  animation: 0.8s ease-in fade-in2 forwards, 0.8s cubic-bezier(0, -0.2, 0.65, 1.45) scale-up forwards;
 }
 
 .slide-left {
-  animation: 0.6s ease-in slide-left;
+  animation: 0.6s ease-in slide-left forwards;
+}
+
+.slide-in {
+  animation: 1.1s cubic-bezier(0, -0.2, 0.65, 1.45) slide-left forwards, 1.1s ease-in fade-in forwards;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes background-move {
@@ -371,6 +417,12 @@ nav {
     transform: translateX(50vw);
   }
 
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-right2 {
   100% {
     transform: translateX(0);
   }
@@ -406,6 +458,18 @@ nav {
   }
 }
 
+@keyframes fade-in2 {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* media queries */
 @media screen and (max-width: 1210px) {
   .mainheading {
@@ -416,11 +480,9 @@ nav {
     color: white;
     text-shadow: 0px 0px 8px rgba(0, 0, 0, 1), 0px 0px 8px rgba(0, 0, 0, 1);
   }
-  .filler {
-    z-index: 10;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.3);
+
+  .bigphoto {
+    opacity: 0.75;
   }
 
   .myname {
@@ -448,6 +510,7 @@ nav {
     bottom: 15vh;
     left: 40vw;
     font-size: 4em;
+    transform: translateX(100vw);
   }
   .myname {
     left: 35vw;
@@ -473,9 +536,14 @@ nav {
     margin: auto;
   }
 
+  .textwrapper {
+    margin-top: 0;
+  }
+
   .gridtext {
     grid-row: 2/2;
     padding: 0;
+    margin: 3%;
   }
 
   .projectphoto {
@@ -484,6 +552,7 @@ nav {
 
   .projectphoto img {
     padding-top: 5%;
+    max-height: 60vh;
   }
 
   .projectdescription {
@@ -521,5 +590,9 @@ nav {
   .buttonswrapper {
     grid-template-columns: 100%;
     grid-auto-flow: row;
+  }
+
+  .projectname {
+    font-size: 1.5em;
   }
 }
