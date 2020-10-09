@@ -5,13 +5,14 @@
 html,
 body,
 h1,
-li {
+li,
+a {
   margin: 0;
   padding: 0;
   font-family: "Barlow Condensed", sans-serif;
 }
 
-a {
+#menu a {
   color: black;
   font-size: 1.6em;
   text-decoration: none;
@@ -36,11 +37,15 @@ button {
   cursor: pointer;
   overflow: hidden;
   transition: all 0.5s;
-  padding: 10px 15px;
+  padding: 10px 30px;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1.2em;
   font-weight: 500;
-  margin: 10px 30px;
+  margin: auto;
+}
+
+.link {
+  margin: auto;
 }
 
 /* button transition on hover */
@@ -159,6 +164,10 @@ nav {
 
 #menuToggle.animatespan ul {
   transform: none;
+}
+
+.contactinfo {
+  font-size: 1.6em;
 }
 
 /* general nav styling */
@@ -362,6 +371,20 @@ nav {
   opacity: 0.1;
 }
 
+#section7 .textwrapper {
+  padding-bottom: 10%;
+}
+
+.credits {
+  position: absolute;
+  color: black;
+  font-size: 1em;
+  right: 0;
+  bottom: 0;
+  padding: 2%;
+  text-decoration: underline;
+}
+
 /* slide in animations */
 
 .slide-right {
@@ -377,7 +400,7 @@ nav {
 }
 
 .slide-in {
-  animation: 1.1s cubic-bezier(0, -0.2, 0.65, 1.45) slide-left forwards, 1.1s ease-in fade-in forwards;
+  animation: 0.8s cubic-bezier(0, -0.2, 0.65, 1.45) slide-left forwards, 1.1s ease-in fade-in forwards;
 }
 
 @keyframes pulse {
@@ -551,11 +574,19 @@ nav {
   }
 
   .projectphoto img {
-    padding-top: 5%;
     max-height: 60vh;
   }
 
   .projectdescription {
+    display: none;
+  }
+
+  #section7 .projectdescription,
+  #section8 .projectdescription {
+    display: block;
+  }
+
+  #section7 .projectphoto {
     display: none;
   }
 
@@ -570,6 +601,10 @@ nav {
   .myname {
     left: 10vw;
   }
+  .textwrapper {
+    padding: 2%;
+  }
+
   .firstname {
     font-size: 4em;
   }
@@ -594,5 +629,61 @@ nav {
 
   .projectname {
     font-size: 1.5em;
+  }
+
+  .projectphoto .img {
+    max-height: 45vh;
+  }
+
+  #section8 .projectname {
+    margin: 0;
+  }
+
+  #section8 .projectdescription {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .credits {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 285px) {
+  .myname {
+    left: 8vw;
+  }
+  .textwrapper {
+    padding: 2%;
+  }
+
+  .firstname {
+    font-size: 3em;
+  }
+
+  .surname {
+    font-size: 3em;
+  }
+
+  .profession {
+    font-size: 1.3em;
+    margin-left: 100px;
+  }
+
+  .mainheading {
+    left: 10vw;
+    font-size: 3em;
+  }
+  .buttonswrapper {
+    grid-template-columns: 100%;
+    grid-auto-flow: row;
+  }
+
+  .projectname {
+    font-size: 1.5em;
+  }
+
+  .projectphoto .img {
+    max-height: 45vh;
   }
 }

@@ -11,7 +11,7 @@ function start() {
 function checkPosition() {
   document.querySelectorAll(".section").forEach((section) => {
     let sectionId = section.getAttribute("id");
-    if (section.getBoundingClientRect().y === 0 && sectionId !== "section0" && sectionId !== "section1") {
+    if (section.getBoundingClientRect().y == 0 && sectionId !== "section0" && sectionId !== "section1") {
       let gridText = section.querySelector(`#${sectionId} .gridtext`);
       let photoContainer = section.querySelector(`#${sectionId} .projectphoto`);
 
@@ -20,7 +20,7 @@ function checkPosition() {
         photoContainer.classList.add("slide-right2");
       }
     }
-    if (section.getBoundingClientRect().y === 0 && sectionId == "section1") {
+    if (section.getBoundingClientRect().y == 0 && sectionId == "section1") {
       const projectsHeading = document.querySelector(".mainheading");
       if (projectsHeading.classList.contains("slide-in") == false) {
         projectsHeading.classList.add("slide-in");
@@ -34,7 +34,7 @@ function burgerMenu() {
   const icon = document.querySelector(".spanwrapper");
   icon.addEventListener("click", animateSpans);
 
-  const menuLinks = document.querySelectorAll("#menu li");
+  const menuLinks = document.querySelectorAll("#menu .menuitem");
   menuLinks.forEach((link) => {
     link.addEventListener("click", function () {
       menuLinks.forEach((link) => {
